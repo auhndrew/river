@@ -1,0 +1,91 @@
+.title {
+    text-decoration: none;
+    padding:20px;
+    font-size:32px;
+    font-weight:500;
+    color:black;
+}
+.active-meetups {
+    background-color:#888888;
+    margin-left:5%;
+    margin-right:5%;
+    padding-left:50px;
+    padding-top:20px;
+    padding-right:50px;
+}
+.active-group-block{
+    background-color:#888888;
+    margin-left:5%;
+    margin-right:5%;
+    margin-top:5%;
+    padding-left:50px;
+    padding-top:20px;
+    padding-right:50px;
+
+}
+.recent-events {
+    background-color:#9f9f9f;
+    margin-left:5%;
+    margin-right:5%;
+    margin-top:1%;
+    margin-bottom:1%;
+    padding-left:50px;
+    padding-top:20px;
+    padding-right:50px;
+}
+
+.responsiveimg{
+width:100%;
+height:auto;
+margin-bottom:10px;
+}
+
+
+.bottom-nav {
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    background-color:white;
+}
+.bottom-nav a{
+    font-size:.9em;
+    font-family:'Roboto';
+    font-color:black;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    color: #fff;
+    margin: 0;
+}
+
+nav li {
+    display: inline-block;
+    width: calc(100vw / 4.6);
+    padding: 10px;
+}
+
+#go-to-active{
+    float:right;
+}
+
+#go-to-recent{
+    float:right;
+}
+
+#group-button{
+    text-align:center;
+}
+
+#plus-button{
+    margin-top:10px;
+}
+
+.icon {
+    float:left;
+    width:40px;
+    height:auto;
+}

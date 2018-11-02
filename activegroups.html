@@ -14,28 +14,43 @@
   <!-- CSS -->
   <link rel="stylesheet" href="css/homepage.css">
 
+<!-- Everything Else here -->
   <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">River</a>
-        </div>
-        <ul class="nav navbar-nav">
-          <li><a href="index.html">Home</a></li>
-          <li class="active"><a href="activegroups.html">Active Groups</a></li>
-          <li><a href="members.html">Members</a></li>
-          <li><a href="settings.html">Settings</a></li>
-        </ul>
-      </div>
-    </nav>
-    <br>
+    <a href="index.html" class="title">River</a>
 
-    <button type="button" class="btn-primary"><- Back</button>
+    <!-- Nav -->
+    <div class="bottom-nav">
+    <nav>
+      <ul>
+        <li><a href="index.html"><p>Home</p></a></li>
+        <li><a href="activegroups.html"><p>Active Groups</p></a></li>
+        <li><a href="members.html"><p>Members</p></a></li>
+        <li><a href="settings.html"><p>Settings</p></a></li>              
+      </ul>
+    </nav>
+  </div>
     <br>
+    <a href="index.html" type="button" class="btn-primary"><- Back</a>
+    <div class="active-group-block">
     <h3>[Group Name]</h3>
-    <p>Lorem Ipsum</p>
+    <img src="http://via.placeholder.com/640x200" class="responsiveimg"></img>
+    <br><h5>Group Name</h5>
+    <p>[location]
+    <br>[time]
+    </p>
     <br>
-    <button type="button" class="btn-primary">+</button>
+  </div>
+
+  <div class="recent-events">
+    <img src="https://png.icons8.com/windows/1600/map-pin.png" class="icon"></img>
+    <h4>Meet at [location]</h4>
+    <p>[time]</p>
+    <br>
+        <button type="button" class="btn btn-primary btn-lg btn-block">+</button>
+    <br>
+    <br>
+  </div>
+  <br><br><br>
 
 
   </body>
