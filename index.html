@@ -35,8 +35,8 @@
     </div>
   </nav> -->
 
-<a href="index.html" class="title">River</a>
-<!-- New Nav --> 
+  <a href="index.html" class="title">River</a>
+  <!-- New Nav --> 
   <div class="bottom-nav">
     <nav>
       <ul>
@@ -48,33 +48,51 @@
     </nav>
   </div>
 
-<!-- Groups Block -->
-  <div class="active-meetups">
-    <h3>Active Meetup!</h3>
-    <img src="http://via.placeholder.com/640x200" class="responsiveimg"></img>
-    <br><h5>Group Name</h5>
-    <a href="activegroups.html" type="button" class="btn-primary" id="go-to-active">></a>
-    <p>[location]
-      <br>[time]
-    </p>
-    <br>
-  </div>
+  <!-- Groups Block -->
+  <div class="container" id="active-groups">
+    <h3>Active Groups</h3>
+    <!-- Map (This doesn't work rn, because google maps api isn't free lol) -->
+    <div id="map">
+      <script>
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  var uluru = {lat: -25.344, lng: 131.036};
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+    document.getElementById('map'), {zoom: 4, center: uluru});
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({position: uluru, map: map});
+}
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+</script>
+</div>
+
+<br><h5>Group Name</h5>
+<a href="activegroups.html" class="button" id="go-to-active">></a>
+<p>[location]
+  <br>[time]
+</p>
+<br>
+</div>
 
 <!-- Recents Block -->
-  <div class="recent-events">
-    <h3>Recent Events</h3>
-        <button type="button" class="btn-primary" id="go-to-recent">∨</button>
-    <p>Lorem ipsum</p>
-    <br>
-  </div>
+<div class="container" id="recent-events">
+  <h3>Recent Events</h3>
+  <button type="button" id="go-to-recent">∨</button>
+  <p>Lorem ipsum</p>
+  <br>
+</div>
 
-  <button type="button " class="btn-primary center-block" id="group-button">+New Group</button>
+<button type="button " class="btn-primary center-block" id="group-button">+New Group</button>
 
 
 
-  <button type="button" class="btn-primary pull-right" id="plus-button">+</button>
+<button type="button" class="btn-primary pull-right" id="plus-button">+</button>
 
-  <br><br><br><br><br>
+<br><br><br><br><br>
 
 
 </body>
