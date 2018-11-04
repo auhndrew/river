@@ -1,8 +1,3 @@
-body {
-    background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/just-waves.png");
-}
-
-
 .title {
     text-decoration: none;
     padding:20px;
@@ -10,32 +5,33 @@ body {
     font-weight:500;
     color:black;
 }
-
-.container {
-    background-color:#ffffff;
+.active-meetups {
+    background-color:#888888;
     margin-left:5%;
     margin-right:5%;
     padding-left:50px;
     padding-top:20px;
     padding-right:50px;
-    border-radius:.5em;
-    box-shadow:0 0 10px #dfd9e2;
 }
-
-#map {
-    width:100%;
-    height:100px;
-    padding-left:-100px;
-    padding-right:-100px;
-    background-color:#dfd9e2;
-}
-
-#active-groups{
-    margin-top:1em;
+.active-group-block{
+    background-color:#888888;
+    margin-left:5%;
+    margin-right:5%;
+    margin-top:5%;
+    padding-left:50px;
+    padding-top:20px;
+    padding-right:50px;
 
 }
-#recent-events {
-    margin-top:1em;   
+.recent-events {
+    background-color:#9f9f9f;
+    margin-left:5%;
+    margin-right:5%;
+    margin-top:1%;
+    margin-bottom:1%;
+    padding-left:50px;
+    padding-top:20px;
+    padding-right:50px;
 }
 
 .responsiveimg{
@@ -51,7 +47,6 @@ margin-bottom:10px;
     position: fixed;
     bottom: 0;
     background-color:white;
-    box-shadow:0 0 10px #dfd9e2;
 }
 .bottom-nav a{
     font-size:.9em;
@@ -71,11 +66,6 @@ nav li {
     display: inline-block;
     width: calc(100vw / 4.6);
     padding: 10px;
-}
-
-nav li a{
-    color:black;
-    vertical-align: center;
 }
 
 #go-to-active{
@@ -98,4 +88,3 @@ nav li a{
     float:left;
     width:40px;
     height:auto;
-}
