@@ -1,1 +1,100 @@
 
+<html>
+
+<!-- bootstrap -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Mobile First -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- End of Bootstrap -->
+
+<!-- CSS -->
+<link rel="stylesheet" href="css/homepage.css">
+
+<!-- Everything else starts here --> 
+<body>
+
+<!-- Old Nav 
+ <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">River</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="index.html">Home</a></li>
+        <li><a href="activegroups.html">Active Groups</a></li>
+        <li><a href="members.html">Members</a></li>
+        <li><a href="settings.html">Settings</a></li>
+      </ul>
+    </div>
+  </nav> -->
+
+  <a href="index.html" class="title">River</a>
+  <!-- New Nav --> 
+  <div class="bottom-nav">
+    <nav>
+      <ul>
+        <li><a href="index.html"><p>Home</p></a></li>
+        <li><a href="activegroups.html"><p>Active Groups</p></a></li>
+        <li><a href="members.html"><p>Members</p></a></li>
+        <li><a href="settings.html"><p>Settings</p></a></li>              
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Groups Block -->
+  <div class="container" id="active-groups">
+    <h3>Active Groups</h3>
+    <!-- Map (This doesn't work rn, because google maps api isn't free lol) -->
+    <div id="map">
+      <script>
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  var uluru = {lat: -25.344, lng: 131.036};
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+    document.getElementById('map'), {zoom: 4, center: uluru});
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({position: uluru, map: map});
+}
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+</script>
+</div>
+
+<br><h5>Group Name</h5>
+<a href="activegroups.html" class="button" id="go-to-active">></a>
+<p>[location]
+  <br>[time]
+</p>
+<br>
+</div>
+
+<!-- Recents Block -->
+<div class="container" id="recent-events">
+  <h3>Recent Events</h3>
+  <button type="button" id="go-to-recent">∨</button>
+  <p>Lorem ipsum</p>
+  <br>
+</div>
+
+<button type="button " class="btn-primary center-block" id="group-button">+New Group</button>
+
+
+
+<button type="button" class="btn-primary pull-right" id="plus-button">+</button>
+
+<br><br><br><br><br>
+
+
+</body>
+</html>
