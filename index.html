@@ -16,6 +16,10 @@
 
 <!-- CSS -->
 <link rel="stylesheet" href="css/homepage.css">
+<!-- JS -->
+<script src="script/javascript.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <!-- Everything else starts here --> 
 <body>
@@ -34,13 +38,21 @@
   </div>
 
 
+<<<<<<< HEAD
+  <!-- Happening Now! -->
+  <h3 class="section-title">What's Happening Now?</h3>
+  <div class="container" id="recent-events">
+    <!-- Map (This doesn't work rn, because google maps api isn't free lol) -->
+    <div id="map">
+=======
 <!-- Happening Now! -->
 <div class="container" id="recent-events">
 <h3 class="section-title">What's Happening Now?</h3>
   <!-- Map -->
   <div id="map">
+>>>>>>> 1dde38a1824eaf1ef9d7e499c7f34f6f47bd73c7
 
-<script>
+      <script>
 // Initialize and add the map
 function initMap() {
   // The location of Uluru
@@ -61,23 +73,78 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_MSh_QGWiHWUinXZcWJzqqkF
 <br><h5>Hogwarts Friends</h5>
 <a href="activegroups.html" class="button" id="go-to-active">></a>
 <p>Westfield, UTC
-<br>12:00pm
+  <br>12:00pm
 </p>
 <br>
-  <br>
+<br>
 </div>
 
+<<<<<<< HEAD
+<!-- Groups Block -->
+<!-- Groups Data -->
+<h3 class="section-title">Active Groups</h3>
+<div class="container" id="active-groups">
+=======
   <!-- Groups Block -->
   <!-- Groups Data -->
   <div class="container" id="active-groups">
       <h3 class="section-title">Active Groups</h3>
+>>>>>>> 1dde38a1824eaf1ef9d7e499c7f34f6f47bd73c7
 
 </div>
 
     <br>
 
-<center><a href="#" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-plus-sign"></span> New Group</a></center>
+<!-- Modal Button -->
+<center><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">New Group</button></center>
 
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label  class="col-sm-2 control-label"
+            for="groupName">Group Name</label>
+            <div class="col-sm-10">
+              <input type="name" class="form-control" 
+              id="groupName3" placeholder="Group Name"/>
+            </div>
+            <br>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="exampleFormControlSelect2">Example multiple select</label>
+              <br>
+              <div class="col-sm-9">
+              <select multiple class="form-control">
+                <option>Friend 1</option>
+                <option>Friend 2</option>
+                <option>Friend 3</option>
+                <option>Friend 4</option>
+                <option>Friend 5</option>
+              </select>
+            </div>
+            </div>
+          </div>
+          <center>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-default">Create New Group</button>
+            </div>
+          </div>
+        </center>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 
 <button type="button" class="btn-primary pull-right" id="plus-button">+</button>
