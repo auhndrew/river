@@ -1,134 +1,153 @@
 <html>
 
-    <!-- bootstrap -->
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- bootstrap -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <!-- Mobile First -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Mobile First -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <!-- End of Bootstrap -->
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- End of Bootstrap -->
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/homepage.css">
-    <!-- JS -->
-    <script src="script/javascript.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- CSS -->
+<link rel="stylesheet" href="css/homepage.css">
+<!-- JS -->
+<script src="script/javascript.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <!-- Everything else starts here --> 
-    <body>
+<!-- Everything else starts here --> 
+<body>
 
-        <a href="index.html" class="title">River</a>
-        <!-- New Nav --> 
-        <div class="bottom-nav">
-            <nav>
-                <ul>
-                    <li><a href="index.html"><p>Home</p></a></li>
-                    <li><a href="activegroups.html"><p>Active Groups</p></a></li>
-                    <li><a href="members.html"><p>Members</p></a></li>
-                    <li><a href="settings.html"><p>Settings</p></a></li>              
-                </ul>
-            </nav>
-        </div>
+<!-- Old Nav 
+ <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">River</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="index.html">Home</a></li>
+        <li><a href="activegroups.html">Active Groups</a></li>
+        <li><a href="members.html">Members</a></li>
+        <li><a href="settings.html">Settings</a></li>
+      </ul>
+    </div>
+  </nav> -->
+
+  <a href="index.html" class="title">River</a>
+  <!-- New Nav --> 
+  <div class="bottom-nav">
+    <nav>
+      <ul>
+        <li><a href="index.html"><p>Home</p></a></li>
+        <li><a href="activegroups.html"><p>Active Groups</p></a></li>
+        <li><a href="members.html"><p>Members</p></a></li>
+        <li><a href="settings.html"><p>Settings</p></a></li>              
+      </ul>
+    </nav>
+  </div>
 
 
-        <!-- Happening Now! -->
-        <div class="container" id="recent-events">
-            <h3 class="section-title">What's Happening Now?</h3>
+  <!-- Happening Now! -->
+  <div class="container" id="recent-events">
+      <h3 class="section-title">What's Happening Now?</h3>
+    <!-- Map -->
+    <div id="map">
 
-            <!-- Map -->
-            <div id="map">
-                <script>
-                    // Initialize and add the map
-                    function initMap() {
-                      // The location of Uluru
-                      var uluru = {lat: 32.871, lng: -117.210};
-                      // The map, centered at Uluru
-                      var map = new google.maps.Map(
-                        document.getElementById('map'), {zoom: 15, center: uluru});
-                      // The marker, positioned at Uluru
-                      var marker = new google.maps.Marker({position: uluru, map: map});
-                    }
-                </script>
+      <script>
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  var uluru = {lat: 32.871, lng: -117.210};
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+    document.getElementById('map'), {zoom: 15, center: uluru});
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({position: uluru, map: map});
+}
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_MSh_QGWiHWUinXZcWJzqqkFxXT3oCyE&callback=initMap">
+</script>
 
-                <script async defer
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_MSh_QGWiHWUinXZcWJzqqkFxXT3oCyE&callback=initMap">
-                </script>
-            </div>
+</div>
 
-            <br><h5>Hogwarts Friends</h5>
-            <a href="activegroups.html" class="button" id="go-to-active">></a>
-            <p>Westfield, UTC
-                <br>12:00pm
-            </p>
-            <br>
-            <br>
-        </div>
+<br><h5>Hogwarts Friends</h5>
+<a href="activegroups.html" class="button" id="go-to-active">></a>
+<p>Westfield, UTC
+  <br>12:00pm
+</p>
+<br>
+<br>
+</div>
 
-        <!-- Groups Block -->
-        <!-- Groups Data -->
-        <div class="container" id="active-groups">
-            <h3 class="section-title">Active Groups</h3>
-            <br>
+<!-- Groups Block -->
+<!-- Groups Data -->
+<div class="container" id="active-groups">
+<h3 class="section-title">Active Groups</h3>
+<br>
+<!-- Modal Button -->
+<center><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">New Group</button></center>
 
-            <!-- Modal Button -->
-            <center><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">New Group</button></center>
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
 
-            <!-- Modal -->
-            <div id="myModal" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">New Group</h4>
-                        </div>
-                        <div class="modal-body">
-                            <form class="form-horizontal" role="form">
-                                <div class="form-group">
-                                    <label  class="col-sm-2 control-label" for="groupName">Group Name</label>
-                                    <div class="col-sm-10">
-                                        <input type="name" class="form-control" id="groupName3" placeholder="Enter your Group's Name here..."/>
-                                    </div>
-                                    <br>
-                                    <div class="form-group">
-                                        <label class="col-sm-2 control-label" for="exampleFormControlSelect2">Choose your contacts</label>
-                                        <br>
-                                        <div class="col-sm-9">
-                                            <select multiple class="form-control">
-                                            <option>Friend 1</option>
-                                            <option>Friend 2</option>
-                                            <option>Friend 3</option>
-                                            <option>Friend 4</option>
-                                            <option>Friend 5</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <center>
-                                <div class="form-group">
-                                    <div class="col-sm-offset-2 col-sm-10">
-                                        <a href="activegroups.html"><button type="submit" class="btn btn-default">Create New Group</button></a>
-                                    </div>
-                                </div>
-                                </center>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label  class="col-sm-2 control-label"
+            for="groupName">Group Name</label>
+            <div class="col-sm-10">
+              <input type="name" class="form-control" 
+              id="groupName3" placeholder="Enter your Group's Name here..."/>
             </div>
             <br>
-        </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="exampleFormControlSelect2">Example multiple select</label>
+              <br>
+              <div class="col-sm-9">
+              <select multiple class="form-control">
+                <option>Friend 1</option>
+                <option>Friend 2</option>
+                <option>Friend 3</option>
+                <option>Friend 4</option>
+                <option>Friend 5</option>
+              </select>
+            </div>
+            </div>
+          </div>
+
+          <center>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <a href="activegroups.html"<button type="submit" class="btn btn-default">Create New Group</button></a>
+            </div>
+          </div>
+        </center>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+
+</div>
 
 
-        <br><br><br><br><br>
-    </body>
+<br><br><br><br><br>
 
+
+</body>
 </html>
