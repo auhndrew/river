@@ -1,0 +1,40 @@
+{
+    "members" : [
+        {
+        "name": "Harry Potter",
+        "age": 17,
+        "profilePicture": "https://pbs.twimg.com/media/DblHRQFX4AAKsei.jpg",
+        "index": 1
+        },
+        
+        {
+            "name": "Tony Stark",
+            "age": 50,
+            "profilePicture":   "https://media.vanityfair.com/photos/558abba4320a56cf42417570/master/w_768,c_limit/robert-downey-jr-the-avengers.jpg",
+            "index": 2
+        },
+       
+        {
+            "name": "Rey",
+            "age": 23,
+            "profilePicture": "https://hips.hearstapps.com/esq.h-cdn.co/assets/16/49/1481124836-rs-1024x672-160416084532-1024-daisy-ridley-rey-star-wars-the-force-awakens-041616.jpg?resize=480:*",
+            "index":3
+        },
+      
+        {
+            "name": "Katniss",
+            "age" : 22,
+            "profilePicture": "https://www.monstersandcritics.com/wp-content/uploads/2016/09/katniss.jpg",
+            "index":4
+        },
+        
+        {
+        "name": "Gandalf",
+        "age": 800, 
+        "profilePicture": "https://qph.fs.quoracdn.net/main-qimg-affc3f1c830c6d37aac1d45db1587f7e-c", 
+            "index":5
+        }
+    ]
+
+}
+
