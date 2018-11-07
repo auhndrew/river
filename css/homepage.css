@@ -131,11 +131,27 @@ nav li a{
 }
 
 
-
 .scrolling-wrapper {
   -webkit-overflow-scrolling: touch;
 
   .card {
     display: inline-block;
   }
+}
+
+.profile  {
+    width: 80%;
+    padding: 10px;
+}
+
+#profilepic {
+    float: left;
+    width: 120px;
+    height: 100px;
+    padding-right: 20px;
+}
+
+#messageicon{
+    width: 80px;
+    height: 40px;
 }
