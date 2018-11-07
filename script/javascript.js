@@ -1,11 +1,12 @@
-var members = [
+var member = [
     {"name": "Harry Potter", "profilePic": "https://image.afcdn.com/story/20180903/trois-nouveaux-livres-harry-potter-1298096_w767h767c1cx252cy106.jpg", "index": 1} 
     
 ]
 
-var meetup =
-
-
+var meetup = [
+	{"location":"Westfield UTC", "time":"12:00PM", "Comment":"What should we eat when we get there?"}
+]
+/*
 var complexData = [
   {'title': 'Needfinding', 'profilePic': 'images/lorempixel.city.1.jpeg', 'index': 2},
   {'title': 'Prototyping', 'profilePic': 'images/lorempixel.technics.1.jpeg', 'index': 3},
@@ -14,8 +15,9 @@ var complexData = [
   {'title': 'Social design', 'profilePic': 'images/lorempixel.people.2.jpeg', 'index': 6},
   {'title': 'Gestural interaction', 'profilePic': 'images/lorempixel.technics.2.jpeg', 'index': 7},
   {'title': 'Design tools', 'profilePic': 'images/lorempixel.city.2.jpeg', 'index': 8}
-]
+]*/
 
+$(document).
 
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
@@ -25,19 +27,19 @@ $(document).ready(function() {
   var source   = $("#entry-template").html();
   var template = Handlebars.compile(source);
 
-  var parentDiv = $("#templatedProjects");
+  //var parentDiv = $("#templatedProjects");
 
   // BEGIN - STEP 1
   
   // start with a simple template
-  var html = template(simpleData);
+  var html = template(meetup);
   console.log(html);
-  parentDiv.append(html);
+  //parentDiv.append(html);
   // now iterate through the complexData list and keep appending:
-  for (var i = 0; i < complexData.length; i++) {
-    var curData = complexData[i];
+  for (var i = 0; i < meetup.length; i++) {
+    var curData = meetup[i];
     var curHtml = template(curData);
-    parentDiv.append(curHtml);
+    //parentDiv.append(curHtml);
   }
   
   // END - STEP 1

@@ -10,8 +10,8 @@
   <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!-- Latest compiled and minified JavaScript 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
   <!-- End of Bootstrap -->
 
   <!-- CSS -->
@@ -46,14 +46,51 @@
 
 <script id="entry-template" type="text/x-handlebars-template">
     <div class="container" id="project{{index}}">
+
         <img src="https://png.icons8.com/windows/1600/map-pin.png" class="icon" id="meeticon">
         <h4>Meet at {{location}}</h4>
-        <p>{{time}}</p>
-        <br>
-        <p>{{title}}</p>
+        <p>{{Time}}</p>
+        <p>{{User}}: {{Comment}}</p>
       </a>
     </div>
 </script>
+
+<div id="templatedProjects">
+
+
+  </div>
+
+<center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">+ Suggest a meeting point</button></center>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Suggest a meeting point</h5>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Location:</label>
+            <input type="text" class="form-control" id="location-name" placeholder="Ex: Shake Shack">
+          </div>
+          <div class="form-group">
+            <label for="example-time-input" class="col-form-label">Time:</label>
+            <input type="time" class="form-control" id="time-input">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Comment:</label>
+            <textarea class="form-control" id="message-text" placeholder="Ex: They have the best fries!"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Suggest</button>
+      </div>
+    </div>
+  </div>
+</div>
 <!--
       <div class="container" id="meetpoint">
     <img src="https://png.icons8.com/windows/1600/map-pin.png" class="icon" id="meeticon">
@@ -67,5 +104,10 @@
   <br><br><br>
 
 
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="script/bootstrap.min.js"></script>
+  <script src="script/handlebars-v4.0.11.js"></script>
+  <script src="script/javascript.js"></script>
   </body>
 </html>
+
