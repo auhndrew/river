@@ -53,6 +53,11 @@ padding-bottom:25px;
     border-color:#dfd9e2;
 }
 
+#recent-events a{
+    text-decoration:none;
+    color:black;
+}
+
 .responsiveimg{
 width:100%;
 height:350px;
