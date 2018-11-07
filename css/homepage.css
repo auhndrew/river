@@ -48,7 +48,9 @@ body {
 
 .responsiveimg{
 width:100%;
-height:auto;
+height:350px;
+padding-left:-100px;
+padding-right:-100px;
 margin-bottom:10px;
 }
 
@@ -115,6 +117,7 @@ nav li a{
     width:40px;
     height:auto;
 }
+
 
 
 .scrolling-wrapper {
