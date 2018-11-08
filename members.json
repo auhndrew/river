@@ -1,10 +1,9 @@
 {
     "members" : [
         {
-        "name": "Harry Potter",
-        "age": 17,
-        "profilePicture": "https://pbs.twimg.com/media/DblHRQFX4AAKsei.jpg",
-        "index": 1
+            "name": "Harry Potter", "age": 17,
+            "profilePicture": "https://pbs.twimg.com/media/DblHRQFX4AAKsei.jpg",
+            "index": 1
         },
         
         {
@@ -29,12 +28,12 @@
         },
         
         {
-        "name": "Gandalf",
-        "age": 800, 
-        "profilePicture": "https://qph.fs.quoracdn.net/main-qimg-affc3f1c830c6d37aac1d45db1587f7e-c", 
+            "name": "Gandalf",
+            "age": 800, 
+            "profilePicture": "https://qph.fs.quoracdn.net/main-qimg-affc3f1c830c6d37aac1d45db1587f7e-c", 
             "index":5
         }
     ]
-
 }
+
 
