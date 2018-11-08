@@ -102,7 +102,7 @@
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label" for="groupName">Group Name</label>
                                     <div class="col-sm-10">
-                                        <input type="name" class="form-control" id="groupName" placeholder="Enter your Group's Name here..."/>
+                                        <input type="name" class="form-control" id="groupName" placeholder="Enter your Group's Name here..." required/>
                                     </div>
                                     <br>
                                 </div>
@@ -141,25 +141,31 @@
                             <script>
                                 var submit = document.getElementById("submit");
                                 submit.onclick = function() {
+                                    var checked1 = document.getElementById("check1").checked;
+                                    var checked2 = document.getElementById("check2").checked;
+                                    var checked3 = document.getElementById("check3").checked;
+                                    var checked4 = document.getElementById("check4").checked;
+                                    var checked5 = document.getElementById("check5").checked;
+                                    
                                     var name = document.getElementById("groupName").value;
                                     localStorage.setItem("name", name);
-                                    if(document.getElementById("check1").checked) {
+                                    if(checked1) {
                                         var check1 = document.getElementById("check1").value;
                                         localStorage.setItem("check1", check1);
                                     }
-                                    if(document.getElementById("check2").checked) {
+                                    if(checked2) {
                                         var check2 = document.getElementById("check2").value;
                                         localStorage.setItem("check2", check2);
                                     }
-                                    if(document.getElementById("check3").checked) {
+                                    if(checked3) {
                                         var check3 = document.getElementById("check3").value;
                                         localStorage.setItem("check3", check3);
                                     }
-                                    if(document.getElementById("check4").checked) {
+                                    if(checked4) {
                                         var check4 = document.getElementById("check4").value;
                                         localStorage.setItem("check4", check4);
                                     }
-                                    if(document.getElementById("check5").checked) {
+                                    if(checked5) {
                                         var check5 = document.getElementById("check5").value;
                                         localStorage.setItem("check5", check5);
                                     }
