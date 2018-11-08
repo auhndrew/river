@@ -49,9 +49,10 @@
 
         <img src="https://png.icons8.com/windows/1600/map-pin.png" class="icon" id="meeticon">
         <h4>Meet at {{location}}</h4>
-        <p>{{Time}}</p>
-        <p>{{User}}: {{Comment}}</p>
+        <p>{{time}}</p>
+        <p>{{comment}}</p>
       </a>
+      <hr>
     </div>
 </script>
 
@@ -62,14 +63,14 @@
 
 <center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">+ Suggest a meeting point</button></center>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" id="modal-fade">
+  <div class="modal-dialog" role="document" id="modal">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Suggest a meeting point</h5>
       </div>
       <div class="modal-body">
-        <form>
+        <form id="suggest-form">
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Location:</label>
             <input type="text" class="form-control" id="location-name" placeholder="Ex: Shake Shack">
@@ -80,13 +81,13 @@
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Comment:</label>
-            <textarea class="form-control" id="message-text" placeholder="Ex: They have the best fries!"></textarea>
+            <textarea class="form-control" id="message-text" placeholder="Ex: I like their shakes! lol "></textarea>
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Suggest</button>
+        <button type="button" class="btn btn-primary" id="submit">Suggest</button>
       </div>
     </div>
   </div>

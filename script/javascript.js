@@ -4,8 +4,12 @@ var member = [
 ]
 
 var meetup = [
-	{"location":"Westfield UTC", "time":"12:00PM", "Comment":"What should we eat when we get there?"}
+	{"location":"Westfield UTC", "time":"12:00PM", "Comment":"What should we eat when we get there?"},
+
 ]
+
+var input = document.getElementById("")
+
 /*
 var complexData = [
   {'title': 'Needfinding', 'profilePic': 'images/lorempixel.city.1.jpeg', 'index': 2},
@@ -17,30 +21,67 @@ var complexData = [
   {'title': 'Design tools', 'profilePic': 'images/lorempixel.city.2.jpeg', 'index': 8}
 ]*/
 
-$(document).
+
 
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
   console.log('hello world');
 
   // compile the template
-  var source   = $("#entry-template").html();
-  var template = Handlebars.compile(source);
-
-  //var parentDiv = $("#templatedProjects");
-
   // BEGIN - STEP 1
-  
-  // start with a simple template
+  });
+
+var submit = document.getElementById("submit");
+submit.onclick = function(){
+  var location = document.getElementById("location-name").value;
+//  localStorage.setItem('newLocation',location);
+  var time = document.getElementById("time-input").value;
+  //localStorage.setItem('newTime',time);
+  var comment = document.getElementById("message-text").value;
+  //localStorage.setItem('newComment',comment);
+
+
+  /*var locationOutput = localStorage.getItem('newLocation');
+  $("#location-name").html(locationOutput);
+  var timeOutput = localStorage.getItem('newTime');
+  $("#time-input").html(timeOutput);
+  var commentOutput = localStorage.getItem('newComment');
+  $("#message-text").html(commentOutput);*/
+  //document.getElementById("outputTime").innerText;
+  //document.getElementById("outputComment").innerText = comment;
+  var suggestion={"location":location,"time":time,"comment":comment};
+  var source = $("#entry-template").html();
+  var template = Handlebars.compile(source);
+  var html = template(suggestion);
+  var parentDiv = $("#templatedProjects");
+  parentDiv.append(html);
+  //var suggestion = $("#templatedProjects");
+  //suggestion.append(html);
+
+}
+//document.getElementById("submit").addEventListener("click")
+/*function submit(){
+  var source   = $("#entry-template").html();
+  $("form#suggest-form :input").each(function(){
+    var input = $(this);
+  })
+  var template = Handlebars.compile(source);
   var html = template(meetup);
+  var suggestion = $("#templatedProjects");
+  suggestion.append(html);
+}*/
+  // start with a simple template
+  /*var html = template(meetup);
   console.log(html);
-  //parentDiv.append(html);
+  var parentDiv = $("#templatedProjects");
+
+  parentDiv.append(html);
   // now iterate through the complexData list and keep appending:
   for (var i = 0; i < meetup.length; i++) {
     var curData = meetup[i];
     var curHtml = template(curData);
     //parentDiv.append(curHtml);
-  }
+  })*/
   
   // END - STEP 1
 
@@ -82,4 +123,4 @@ $(document).ready(function() {
   }
   */
   // END - STEP 3
-});
+//});
