@@ -80,7 +80,23 @@ splitSuggest.onclick = function(){
   var template = Handlebars.compile(source);
   var html = template(suggestion);
   var parentDiv = $("#templatedProjects");
-  parentDiv.append(html);
+  var currDiv = parentDiv.append(html);
+}
+
+var edit = document.getElementById("saveEdits");
+edit.onclick = function(){
+  var location = document.getElementById("location-name").value;
+  //localStorage.setItem('newLocation',location);
+  var time = document.getElementById("time-input").value;
+  //localStorage.setItem('newTime',time);
+  var comment = document.getElementById("message-text").value;
+  //localStorage.setItem('newComment',comment);
+  var suggestion={"location":location,"time":time,"comment":comment};
+  var source = $("#entry-template").html();
+
+  var template = Handlebars.compile(source);
+  var edited = template(suggestion);
+  var parentDiv = $("#templatedProjects");
 }
 
 

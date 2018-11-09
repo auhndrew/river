@@ -53,9 +53,9 @@
 
 <script id="entry-template" type="text/x-handlebars-template">
     <div class="container" id="project{{index}}">
+        <button type="button" class="btn btn-link pull-right" data-toggle="modal" data-target="#editModal" id="#editModal">Edit</button>
 
         <h4>Meet at {{location}}</h4>
-        
         <h5>Meeting Time: {{time}}</h5>
         <h5>Comment: {{comment}}</h5>
         <P id="going">Going: Harry Potter, Tony Stark, Rey</p>
@@ -77,6 +77,8 @@
 
 
   </div>
+
+<!-- Normal Modal -->
 <br>
 <center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">+ Suggest a meeting point</button></center>
 <br><br>
@@ -110,7 +112,7 @@
   </div>
 </div>
 
-
+<!-- Split Modal -->
 <div class="modal fade" id="splitModal" tabindex="-1" role="dialog" aria-labelledby="splitModalLabel" aria-hidden="true" id="modal-fade">
   <div class="modal-dialog" role="document" id="modal">
     <div class="modal-content">
@@ -136,6 +138,37 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="submit" data-dismiss="modal" data-target="#exampleModal" class="btn btn-primary" id="splitsuggest">Split suggestion</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="splitModalLabel" aria-hidden="true" id="modal-fade">
+  <div class="modal-dialog" role="document" id="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit meeting point</h5>
+      </div>
+      <div class="modal-body">
+        <form id="suggest-form">
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Location:</label>
+            <input type="text" class="form-control" id="location-name" placeholder="Ex: Shake Shack">
+          </div>
+          <div class="form-group">
+            <label for="example-time-input" class="col-form-label">Time:</label>
+            <input type="time" class="form-control" id="time-input">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Comment:</label>
+            <textarea class="form-control" id="message-text" placeholder="Ex: I like their shakes! lol "></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" data-dismiss="modal" data-target="#editModal" class="btn btn-primary" id="saveEdits">Save Changes</button>
       </div>
     </div>
   </div>
