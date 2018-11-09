@@ -30,7 +30,7 @@ $(document).ready(function() {
   // BEGIN - STEP 1
   });
 
-var submit = document.getElementById("submit");
+var submit = document.getElementById("suggest");
 submit.onclick = function(){
   var location = document.getElementById("location-name").value;
 //  localStorage.setItem('newLocation',location);
@@ -48,17 +48,21 @@ submit.onclick = function(){
   $("#message-text").html(commentOutput);*/
   //document.getElementById("outputTime").innerText;
   //document.getElementById("outputComment").innerText = comment;
+
   var suggestion={"location":location,"time":time,"comment":comment};
   var source = $("#entry-template").html();
   var template = Handlebars.compile(source);
   var html = template(suggestion);
   var parentDiv = $("#templatedProjects");
   parentDiv.append(html);
-   $('.modal').removeClass('in');
-   $('.modal').attr("aria-hidden","true");
+   /* $('.modal').removeClass('in');
    $('.modal').css("display", "none");
-   $('.modal-backdrop').remove();
-   $('body').removeClass('modal-open');
+   */
+   // $(".modal").hide();
+   // $('.modal').attr("aria-hidden","true");  
+   // $("modal-fade").modal();
+   // $('.modal-backdrop').hide();
+   // $('body').removeClass('modal-open');
   //var suggestion = $("#templatedProjects");
   //suggestion.append(html);
 }

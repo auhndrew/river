@@ -43,8 +43,11 @@
         console.log(newName);
         document.getElementById("groupName-active").innerHTML = newName;
         </script>
-        <img src="http://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png" class="icon"><img src="http://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png" class="icon"><img src="http://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png" class="icon"><img src="http://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png" class="icon">
-        <br>
+        <h5>Group Members:</h5>
+        <p id="group-members"></p>
+        <script>
+        document.getElementById("group-members").innerHTML = localStorage.getItem('check1');
+        </script>
         <br>
 </div>
         <br>
@@ -53,11 +56,11 @@
     <div class="container" id="project{{index}}">
 
         <h4>Meet at {{location}}</h4>
-        <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#splitbutton" id="#splitbutton">Split Up!</button>
+        
         <p>{{time}}</p>
         <p>{{comment}}</p>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#goingbutton">Going</button>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#notgoingbutton">Not Going</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#notgoingbutton">Not Going</button><button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#splitbutton" id="#splitbutton">Split Up!</button>
       <hr>
     </div>
 </script>
@@ -66,7 +69,7 @@
 
 
   </div>
-
+<br>
 <center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">+ Suggest a meeting point</button></center>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" id="modal-fade">
@@ -93,7 +96,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary" id="submit">Suggest</button>
+        <button type="submit" data-dismiss="modal" data-target="#exampleModal" class="btn btn-primary" id="suggest">Suggest</button>
       </div>
     </div>
   </div>

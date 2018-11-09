@@ -147,29 +147,36 @@
                                     var checked4 = document.getElementById("check4").checked;
                                     var checked5 = document.getElementById("check5").checked;
                                     
+                                    var grouplist = {};
+
                                     var name = document.getElementById("groupName").value;
                                     localStorage.setItem("name", name);
                                     if(checked1) {
                                         var check1 = document.getElementById("check1").value;
                                         localStorage.setItem("check1", check1);
+                                        grouplist.append(check1);
                                     }
                                     if(checked2) {
                                         var check2 = document.getElementById("check2").value;
                                         localStorage.setItem("check2", check2);
+                                        grouplist.append(check2);
                                     }
                                     if(checked3) {
                                         var check3 = document.getElementById("check3").value;
                                         localStorage.setItem("check3", check3);
+                                        grouplist.append(check3);
                                     }
                                     if(checked4) {
                                         var check4 = document.getElementById("check4").value;
                                         localStorage.setItem("check4", check4);
+                                        grouplist.append(check4);
                                     }
                                     if(checked5) {
                                         var check5 = document.getElementById("check5").value;
                                         localStorage.setItem("check5", check5);
+                                        grouplist.append(check5);
                                     }
-                                    
+                                    console.log(grouplist);
                                 }
                             </script>
                         </div>
