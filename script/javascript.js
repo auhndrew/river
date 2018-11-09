@@ -26,7 +26,6 @@ var complexData = [
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
   console.log('hello world');
-
   // compile the template
   // BEGIN - STEP 1
   });
@@ -55,10 +54,16 @@ submit.onclick = function(){
   var html = template(suggestion);
   var parentDiv = $("#templatedProjects");
   parentDiv.append(html);
+   $('.modal').removeClass('in');
+   $('.modal').attr("aria-hidden","true");
+   $('.modal').css("display", "none");
+   $('.modal-backdrop').remove();
+   $('body').removeClass('modal-open');
   //var suggestion = $("#templatedProjects");
   //suggestion.append(html);
-
 }
+
+
 //document.getElementById("submit").addEventListener("click")
 /*function submit(){
   var source   = $("#entry-template").html();

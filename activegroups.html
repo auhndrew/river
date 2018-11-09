@@ -37,7 +37,12 @@
     <a href="index.html" type="button" class="btn btn-lg btn-default">Back</a><br><br>
     <div class= "container" id = "active-group-block">
         <img src="https://images.ctfassets.net/bxd3o8b291gf/4j6x7iMI88aicYasciiMsm/c581d5f9a424f664cd6f19dbb4c5dee0/HogwartsCastle_WB_F5_HogwartsCastleIllustration_Illust_080615_Land.jpg?w=1200" alt="Group Image" class="responsiveimg">
-        <h3>[Hogwarts Friends]</h3>
+        <h3 id="groupName-active"></h3>
+        <script>
+        var newName = localStorage.getItem('name');
+        console.log(newName);
+        document.getElementById("groupName-active").innerHTML = newName;
+        </script>
         <img src="http://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png" class="icon"><img src="http://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png" class="icon"><img src="http://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png" class="icon"><img src="http://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png" class="icon">
         <br>
         <br>
@@ -47,11 +52,12 @@
 <script id="entry-template" type="text/x-handlebars-template">
     <div class="container" id="project{{index}}">
 
-        <img src="https://png.icons8.com/windows/1600/map-pin.png" class="icon" id="meeticon">
         <h4>Meet at {{location}}</h4>
+        <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#splitbutton" id="#splitbutton">Split Up!</button>
         <p>{{time}}</p>
         <p>{{comment}}</p>
-      </a>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#goingbutton">Going</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#notgoingbutton">Not Going</button>
       <hr>
     </div>
 </script>
@@ -61,7 +67,7 @@
 
   </div>
 
-<center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">+ Suggest a meeting point</button></center>
+<center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">+ Suggest a meeting point</button></center>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" id="modal-fade">
   <div class="modal-dialog" role="document" id="modal">
@@ -87,7 +93,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="submit">Suggest</button>
+        <button type="submit" class="btn btn-primary" id="submit">Suggest</button>
       </div>
     </div>
   </div>

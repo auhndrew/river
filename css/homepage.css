@@ -130,6 +130,9 @@ nav li a{
     margin-right: 5%;
     
 }
+#splitbutton{
+    float:right;
+}
 
 .icon {
     width:40px;
