@@ -43,10 +43,10 @@
         console.log(newName);
         document.getElementById("groupName-active").innerHTML = newName;
         </script>
-        <h5>Group Members:</h5>
-        <p id="group-members"></p>
+        <h5>Group Members:</h5> You, Harry Potter, Tony Stark, Rey, Katniss, Gandalf
+        <br>
         <script>
-        document.getElementById("group-members").innerHTML = localStorage.getItem('check1');
+        //document.getElementById("group-members").innerHTML = localStorage.getItem('check1','check2');
         </script>
         <br>
 </div>
@@ -57,10 +57,12 @@
 
         <h4>Meet at {{location}}</h4>
         
-        <p>{{time}}</p>
-        <p>{{comment}}</p>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#goingbutton">Going</button>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#notgoingbutton">Not Going</button><button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#splitbutton" id="#splitbutton">Split Up!</button>
+        <h5>Meeting Time: {{time}}</h5>
+        <h5>Comment: {{comment}}</h5>
+        <P id="going">Going: Harry Potter, Tony Stark, Rey</p>
+        <p id="notgoing">Not Going: Katniss, Gandalf</p>
+        <button type="button" class="btn btn-primary" onclick="going()">Going</button>
+        <button type="button" class="btn btn-primary" onclick="notgoing()">Not Going</button><button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#exampleModal" id="#splitbutton">Split Up!</button>
       <hr>
     </div>
 </script>
@@ -71,7 +73,7 @@
   </div>
 <br>
 <center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">+ Suggest a meeting point</button></center>
-
+<br><br>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" id="modal-fade">
   <div class="modal-dialog" role="document" id="modal">
     <div class="modal-content">

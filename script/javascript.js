@@ -68,6 +68,18 @@ submit.onclick = function(){
 }
 
 
+function going(){
+  var name = "Going: You, Harry Potter, Tony Stark, Rey"
+  $("#going").html(name);
+  localStorage.setItem('rsvpgoing',name);
+}
+
+function notgoing(){
+  var name = "Not Going: You, Harry Potter, Tony Stark, Rey"
+  $("#notgoing").html(name);
+  localStorage.setItem('rsvpnotgoing',name);
+}
+
 //document.getElementById("submit").addEventListener("click")
 /*function submit(){
   var source   = $("#entry-template").html();
