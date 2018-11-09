@@ -38,25 +38,46 @@
     
   <div class="container" id="active-groups">
       <div class="profile">
-          <img id="profilepic" src="https://image.afcdn.com/story/20180903/trois-nouveaux-livres-harry-potter-1298096_w767h767c1cx252cy106.jpg">
+          <img id="profilepic" src="https://pbs.twimg.com/media/DblHRQFX4AAKsei.jpg">
           <h4>Harry Potter</h4>
-          <button type="button" class="btn btn-lg btn-default" id="messageicon">
+          <button type="button" class="btn btn-lg btn-default" id="messageicon" data-toggle="modal" data-target="#messageModal">
               <p><span class="glyphicon glyphicon-comment" aria-hidden="true" style = "display: block; margin: 0 auto;"></span></p>
           </button>
       </div>
       <br>
       <div class="profile">
-          <img id="profilepic" src="https://image.afcdn.com/story/20180903/trois-nouveaux-livres-harry-potter-1298096_w767h767c1cx252cy106.jpg">
-          <h4>Harry Potter</h4>
-          <button type="button" class="btn btn-lg btn-default" id="messageicon">
+          <img id="profilepic" src="https://media.vanityfair.com/photos/558abba4320a56cf42417570/master/w_768,c_limit/robert-downey-jr-the-avengers.jpg">
+          <h4>Tony Stark</h4>
+          <button type="button" class="btn btn-lg btn-default" id="messageicon" data-toggle="modal" data-target="#messageModal">
               <p><span class="glyphicon glyphicon-comment" aria-hidden="true" style = "display: block; margin: 0 auto;"></span></p>
           </button>
-      </div>
+      </div><br>
+      <div class="profile">
+          <img id="profilepic" src="https://hips.hearstapps.com/esq.h-cdn.co/assets/16/49/1481124836-rs-1024x672-160416084532-1024-daisy-ridley-rey-star-wars-the-force-awakens-041616.jpg?resize=480:*">
+          <h4>Rey</h4>
+          <button type="button" class="btn btn-lg btn-default" id="messageicon" data-toggle="modal" data-target="#messageModal">
+              <p><span class="glyphicon glyphicon-comment" aria-hidden="true" style = "display: block; margin: 0 auto;"></span></p>
+          </button>
+      </div><br>
+      <div class="profile">
+          <img id="profilepic" src="https://www.monstersandcritics.com/wp-content/uploads/2016/09/katniss.jpg">
+          <h4>Katniss</h4>
+          <button type="button" class="btn btn-lg btn-default" id="messageicon" data-toggle="modal" data-target="#messageModal">
+              <p><span class="glyphicon glyphicon-comment" aria-hidden="true" style = "display: block; margin: 0 auto;"></span></p>
+          </button>
+      </div><br>
+      <div class="profile">
+          <img id="profilepic" src="https://qph.fs.quoracdn.net/main-qimg-affc3f1c830c6d37aac1d45db1587f7e-c">
+          <h4>Gandalf</h4>
+          <button type="button" class="btn btn-lg btn-default" id="messageicon" data-toggle="modal" data-target="#messageModal">
+              <p><span class="glyphicon glyphicon-comment" aria-hidden="true" style = "display: block; margin: 0 auto;"></span></p>
+          </button>
+      </div><br>
       <script id="friend-entry" type="text/x-handlebars-template">
       <div class="profile" id="project{{index}}">
         <img id="profilepic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEEeWlv_3UVd-vhULlSw1XIXpxkGTQQftN8xeBG-JAUbe8CVAT">
         <h4>{{friendUser}}</h4>
-        <button type="button" class="btn btn-lg btn-default" id="messageicon">
+        <button type="button" class="btn btn-lg btn-default" id="messageicon" data-toggle="modal" data-target="#messageModal">
               <p><span class="glyphicon glyphicon-comment" aria-hidden="true" style = "display: block; margin: 0 auto;"></span></p>
           </button>
       </div>
@@ -69,7 +90,40 @@
 
   <br>
 
+    
+    <!-- Message Script -->
+    <script>
+        
+    </script>
 
+    <!-- Message Modal -->
+    <div id="messageModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Send a short message!</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="message">Message</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="message" placeholder="Enter your message here..." required/>
+                            </div>
+                        </div>
+                        <center>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-default" id="send"> Send</button>
+                            </div>
+                        </center>
+                    </form>
+                </div>
+            </div>
+            
+        </div>    
+    </div>
 
   <center><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#friendModal">+ Add Friend</button></center>
 <!-- Modal -->
