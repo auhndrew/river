@@ -60,8 +60,15 @@
         <h5>Comment: {{comment}}</h5>
         <P id="going">Going: Harry Potter, Tony Stark, Rey</p>
         <p id="notgoing">Not Going: Katniss, Gandalf</p>
-        <button type="button" class="btn btn-primary" onclick="going()">Going</button>
-        <button type="button" class="btn btn-primary" onclick="notgoing()">Not Going</button><button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#splitModal" id="#splitbutton">Split Up!</button>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="going" autocomplete="off" checked>Going
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="notGoing" autocomplete="off"> Not Going
+          </label>
+        </div>
+        <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#splitModal" id="#splitbutton">Split Up!</button>
       <hr>
     </div>
 </script>
