@@ -67,6 +67,22 @@ submit.onclick = function(){
   //suggestion.append(html);
 }
 
+var splitSuggest = document.getElementById("splitsuggest");
+splitSuggest.onclick = function(){
+  var location = document.getElementById("location-name").value;
+//  localStorage.setItem('newLocation',location);
+  var time = document.getElementById("time-input").value;
+  //localStorage.setItem('newTime',time);
+  var comment = document.getElementById("message-text").value;
+  //localStorage.setItem('newComment',comment);
+  var suggestion={"location":location,"time":time,"comment":comment};
+  var source = $("#entry-template").html();
+  var template = Handlebars.compile(source);
+  var html = template(suggestion);
+  var parentDiv = $("#templatedProjects");
+  parentDiv.append(html);
+}
+
 
 function going(){
   var name = "Going: You, Harry Potter, Tony Stark, Rey"
