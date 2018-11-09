@@ -1,189 +1,45 @@
- <html>
+<!doctype html>
+<html>
+<head>
 
-    <!-- bootstrap -->
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- bootstrap -->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <!-- Mobile First -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Mobile First -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <!-- End of Bootstrap -->
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<!-- End of Bootstrap -->
 
-    <!-- CSS -->
+<!-- CSS -->
     <link rel="stylesheet" href="css/homepage.css">
     <!-- JS -->
     <script src="script/javascript.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
 
-    <!-- Everything else starts here --> 
-    <body>
-        <a href="index.html" class="title">River</a>
-        
-        <!-- New Nav --> 
-        <div class="bottom-nav">
-            <nav>
-                <ul>
-                    <li><a href="index.html"><p>Home</p></a></li>
-                    <li><a href="activegroups.html"><p>Active Groups</p></a></li>
-                    <li><a href="contacts.html"><p>Contacts</p></a></li>              
-                </ul>
-            </nav>
-        </div>
-
-
-        <!-- Happening Now! -->
-        
-        <a href="activegroups.html" class="button">
-          <div class="container" id="recent-events">
-            <h3 class="section-title">What's Happening Now?</h3>
-            
-            <script>
-                var name = localStorage.getItem('customName');
-                if(name) {
-                    $('#myName').html(name);
-                }
-            </script>
-            
-            <!-- Map -->
-            <div id="map">
-                <script>
-                    // Initialize and add the map
-                    function initMap() {
-                      // The location of Uluru
-                      var uluru = {lat: 32.871, lng: -117.210};
-                      // The map, centered at Uluru
-                      var map = new google.maps.Map(
-                        document.getElementById('map'), {zoom: 15, center: uluru});
-                      // The marker, positioned at Uluru
-                      var marker = new google.maps.Marker({position: uluru, map: map});
-                    }
-                </script>
-                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_MSh_QGWiHWUinXZcWJzqqkFxXT3oCyE&callback=initMap"></script>
-            </div>
-
-            <br><h5>Hogwarts Friends</h5>
-            <a href="activegroups.html" class="button" id="go-to-active">></a>
-            <p>Westfield, UTC
-                <br>12:00pm
-            </p>
-            <br>
-            <br>
-        </div>
-      </a>
-
-        <!-- Groups Block -->
-        <!-- Groups Data -->
-        <div class="container" id="active-groups">
-            <h3 class="section-title">Active Groups</h3>
-            <br>
-            
-            <!-- Modal Button -->
-            <center><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">New Group</button></center>
-
-            <!-- Modal -->
-            <div id="myModal" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Create New Group</h4>
-                        </div>
-                        <div class="modal-body">
-                            <form class="form-horizontal" role="form">
-                                <div class="form-group">
-                                    <label  class="col-sm-2 control-label" for="groupName">Group Name</label>
-                                    <div class="col-sm-10">
-                                        <input type="name" class="form-control" id="groupName" placeholder="Enter your Group's Name here..." required/>
-                                    </div>
-                                    <br>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label" for="exampleFormControlSelect2">Select contacts</label>
-                                    <br>
-                                    <div class="col-sm-9">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Harry Potter" id="check1" checked>
-                                                <label class="form-check-label" for="check1">Harry Potter</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Tony Stark" id="check2">
-                                                <label class="form-check-label" for="check2">Tony Stark</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Rey" id="check3">
-                                                <label class="form-check-label" for="check3">Rey</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Katniss" id="check4">
-                                                <label class="form-check-label" for="check4">Katniss</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Gandalf" id="check5">
-                                                <label class="form-check-label" for="check5">Gandalf</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <center>
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-default" id="submit"><a href="activegroups.html">Create New Group</a></button>
-                                    </div>
-                                </center>
-                            </form>
-                            <script>
-                                var submit = document.getElementById("submit");
-                                submit.onclick = function() {
-                                    var checked1 = document.getElementById("check1").checked;
-                                    var checked2 = document.getElementById("check2").checked;
-                                    var checked3 = document.getElementById("check3").checked;
-                                    var checked4 = document.getElementById("check4").checked;
-                                    var checked5 = document.getElementById("check5").checked;
-                                    
-                                    //var grouplist = {};
-
-                                    var name = document.getElementById("groupName").value;
-                                    localStorage.setItem("name", name);
-                                    if(checked1) {
-                                        var check1 = document.getElementById("check1").value;
-                                        localStorage.setItem("check1", check1);
-                                        grouplist.append(check1);
-                                    }
-                                    if(checked2) {
-                                        var check2 = document.getElementById("check2").value;
-                                        localStorage.setItem("check2", check2);
-                                        grouplist.append(check2);
-                                    }
-                                    if(checked3) {
-                                        var check3 = document.getElementById("check3").value;
-                                        localStorage.setItem("check3", check3);
-                                        grouplist.append(check3);
-                                    }
-                                    if(checked4) {
-                                        var check4 = document.getElementById("check4").value;
-                                        localStorage.setItem("check4", check4);
-                                        grouplist.append(check4);
-                                    }
-                                    if(checked5) {
-                                        var check5 = document.getElementById("check5").value;
-                                        localStorage.setItem("check5", check5);
-                                        grouplist.append(check5);
-                                    }
-                                    console.log(grouplist);
-                                }
-                            </script>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br>
-        </div>
-        <br><br><br><br><br>
-    </body>
+<body>
+<div class="container" id="loginform">
+	<h3 class="section-title">Welcome to <u>River</u>!</h3>	
+		<form action="home.html" method="post" class="loginform">
+			<div class="form-row align-items-center">
+				<div class="form-group">
+					<label for="username">Username</label>
+					<input type="username" class="form-container" id="userid" placeholder="Enter username" required="required"/>
+				</div>
+				<div class="form-group">
+					<label for="password">Password</label>
+					<input type="password" class="form-container" id="pword" placeholder="Password" required="required"/>
+				</div>
+				<button type="submit" class="btn btn-primary" onclick="checkLogin(this.form)">Login</button>
+			</div>
+		</form>
+	</div>
+</body>
 </html>
