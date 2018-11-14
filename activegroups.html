@@ -43,15 +43,17 @@
         document.getElementById("groupName-active").innerHTML = newName;
         </script>
         <h5>Group Members:</h5>
-        <h6 id = "group-members">You, </h6>
+        <h6 id = "group-members"></h6>
         <br>
         <script>
-            var memberList = "";
-            for(var i=1; i < localStorage.length-1; i++)  {
-                memberList += localStorage.getItem("check" + i) + ", ";
+            var memberList = "You, ";
+            var memberArray = JSON.parse(localStorage.getItem("members"));
+            for(var i=0; i < memberArray.length; i++)  {
+                memberList += memberArray[i];
+                if(i != memberArray.length-1) {
+                    memberList += ", ";
+                }
             }
-            var lastIndex = localStorage.length-1;
-            memberList += localStorage.getItem("check" + lastIndex);
             document.getElementById("group-members").innerHTML = memberList;
         </script>
         <br>
