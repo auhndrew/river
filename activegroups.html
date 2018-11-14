@@ -42,10 +42,17 @@
         console.log(newName);
         document.getElementById("groupName-active").innerHTML = newName;
         </script>
-        <h5>Group Members:</h5> You, Harry Potter, Tony Stark, Rey, Katniss, Gandalf
+        <h5>Group Members:</h5>
+        <h6 id = "group-members">You, </h6>
         <br>
         <script>
-        //document.getElementById("group-members").innerHTML = localStorage.getItem('check1','check2');
+            var memberList = "";
+            for(var i=1; i < localStorage.length-1; i++)  {
+                memberList += localStorage.getItem("check" + i) + ", ";
+            }
+            var lastIndex = localStorage.length-1;
+            memberList += localStorage.getItem("check" + lastIndex);
+            document.getElementById("group-members").innerHTML = memberList;
         </script>
         <br>
 </div>
