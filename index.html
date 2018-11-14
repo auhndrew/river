@@ -39,7 +39,6 @@
 
         <!-- Happening Now! -->
         
-        <a href="activegroups.html" class="button">
           <div class="container" id="recent-events">
             <h3 class="section-title">What's Happening Now?</h3>
             
@@ -67,15 +66,16 @@
                 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_MSh_QGWiHWUinXZcWJzqqkFxXT3oCyE&callback=initMap"></script>
             </div>
 
+            <a href="activegroups.html">
             <br><h5>Hogwarts Friends</h5>
             <a href="activegroups.html" class="button" id="go-to-active">></a>
             <p>Westfield, UTC
                 <br>12:00pm
             </p>
+            </a>
             <br>
             <br>
         </div>
-      </a>
 
         <!-- Groups Block -->
         <!-- Groups Data -->
@@ -147,8 +147,6 @@
                                     var checked3 = document.getElementById("check3").checked;
                                     var checked4 = document.getElementById("check4").checked;
                                     var checked5 = document.getElementById("check5").checked;
-                                    
-                                    //var grouplist = {};
 
                                     var name = document.getElementById("groupName").value;
                                     localStorage.setItem("name", name);
