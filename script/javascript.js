@@ -4,8 +4,7 @@ var member = [
 ]
 
 var meetup = [
-	{"location":"Westfield UTC", "time":"12:00PM", "Comment":"What should we eat when we get there?"},
-
+	
 ]
 
 var input = document.getElementById("")
@@ -26,12 +25,21 @@ var complexData = [
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
   console.log('hello world');
+  var source = $("#entry-template").html();
+  var template = Handlebars.compile(source);
+  var parentDiv = $("#templatedProjects");
+  var meetupArray = JSON.parse(localStorage.getItem('meetupArray'));
+  for(var i = 0; i<meetupArray.length;i++){
+    var curData = meetupArray[i];
+    var curHtml = template(curData);
+    parentDiv.append(curHtml);
+  }
   // compile the template
   // BEGIN - STEP 1
   });
 
-var submit = document.getElementById("suggest");
-submit.onclick = function(){
+var suggest = document.getElementById("suggest");
+suggest.onclick = function(){
   var location = document.getElementById("location-name").value;
 //  localStorage.setItem('newLocation',location);
   var time = document.getElementById("time-input").value;
@@ -39,22 +47,30 @@ submit.onclick = function(){
   var comment = document.getElementById("message-text").value;
   //localStorage.setItem('newComment',comment);
 
-
-  /*var locationOutput = localStorage.getItem('newLocation');
-  $("#location-name").html(locationOutput);
-  var timeOutput = localStorage.getItem('newTime');
-  $("#time-input").html(timeOutput);
-  var commentOutput = localStorage.getItem('newComment');
-  $("#message-text").html(commentOutput);*/
-  //document.getElementById("outputTime").innerText;
-  //document.getElementById("outputComment").innerText = comment;
+  location.value = localStorage.getItem('location-name');
+  time.value = localStorage.getItem('time-input');
+  comment.value = localStorage.getItem('message-text');
+  
+  localStorage.setItem('location-name',location.value);
+  localStorage.setItem('time-input',time.value);
+  localStorage.setItem('message-text',comment.value);
+  
 
   var suggestion={"location":location,"time":time,"comment":comment};
-  var source = $("#entry-template").html();
-  var template = Handlebars.compile(source);
-  var html = template(suggestion);
-  var parentDiv = $("#templatedProjects");
-  parentDiv.append(html);
+  console.log(suggestion);
+  //var suggestionObj = JSON.parse(suggestion);
+  //var html = template(suggestion);
+  //var parentDiv = $("#templatedProjects");
+  //parentDiv.append(html);
+  localStorage.setItem("newSuggestion",JSON.stringify(suggestion));
+  var existingItems = JSON.parse(localStorage.getItem('meetupArray'));
+  if(existingItems == null){
+    existingItems = [];
+  }
+  existingItems.push(suggestion);
+  localStorage.setItem('meetupArray',JSON.stringify(existingItems));
+
+  window.location.reload();
    /* $('.modal').removeClass('in');
    $('.modal').css("display", "none");
    */
