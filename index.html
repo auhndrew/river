@@ -35,11 +35,22 @@
                 </ul>
             </nav>
         </div>
+        
+        <!-- Startup Script -->
+        <script>
+            $(document).ready(function() {
+                var hidden = true;
+                hidden = localStorage.getItem("hidden");
+                if(hidden === "false") {
+                    document.getElementById("recent-events").style = "inline";
+                }
+            });
+        </script>
 
 
         <!-- Happening Now! -->
         
-          <div class="container" id="recent-events">
+          <div class="container" id="recent-events" style="display:  none;">
             <h3 class="section-title">What's Happening Now?</h3>
             
             <script>
@@ -67,12 +78,18 @@
             </div>
 
             <a href="activegroups.html">
-            <br><h5>Hogwarts Friends</h5>
+            <br><h5 id = "groupName">Hogwarts Friends</h5>
             <a href="activegroups.html" class="button" id="go-to-active">></a>
             <p>Westfield, UTC
                 <br>12:00pm
             </p>
             </a>
+              
+              <script>
+                if(localStorage) {
+                    document.getElementById("groupName").innerHTML =    localStorage.getItem('name');
+                }
+              </script>
             <br>
             <br>
         </div>
@@ -141,6 +158,7 @@
                                 var submit = document.getElementById("submit");
                                 submit.onclick = function() {
                                     localStorage.clear();
+                                    localStorage.setItem("hidden", "false");
                                     
                                     var arr = [];
                                     $(".form-check-input:checked").each(function() {
