@@ -6,6 +6,7 @@ body {
 
 .title {
     text-decoration: none;
+    padding-top: 50px;
     padding:20px;
     font-size:32px;
     font-weight:500;
@@ -132,6 +133,13 @@ nav li a{
 }
 #splitbutton{
     float:right;
+}
+
+#logo-med
+{
+    width: 60px;
+    height: auto;
+    align-items: center;
 }
 
 .icon {
