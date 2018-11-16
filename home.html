@@ -35,12 +35,22 @@
                 </ul>
             </nav>
         </div>
+        
+        <!-- Startup Script -->
+        <script>
+            $(document).ready(function() {
+                var hidden = true;
+                hidden = localStorage.getItem("hidden");
+                if(hidden === "false") {
+                    document.getElementById("recent-events").style = "inline";
+                }
+            });
+        </script>
 
 
         <!-- Happening Now! -->
         
-        <a href="activegroups.html" class="button">
-          <div class="container" id="recent-events">
+          <div class="container" id="recent-events" style="display:  none;">
             <h3 class="section-title">What's Happening Now?</h3>
             
             <script>
@@ -67,15 +77,22 @@
                 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_MSh_QGWiHWUinXZcWJzqqkFxXT3oCyE&callback=initMap"></script>
             </div>
 
-            <br><h5>Hogwarts Friends</h5>
+            <a href="activegroups.html">
+            <br><h5 id = "groupName">Hogwarts Friends</h5>
             <a href="activegroups.html" class="button" id="go-to-active">></a>
             <p>Westfield, UTC
                 <br>12:00pm
             </p>
+            </a>
+              
+              <script>
+                if(localStorage) {
+                    document.getElementById("groupName").innerHTML =    localStorage.getItem('name');
+                }
+              </script>
             <br>
             <br>
         </div>
-      </a>
 
         <!-- Groups Block -->
         <!-- Groups Data -->
@@ -140,42 +157,17 @@
                             <script>
                                 var submit = document.getElementById("submit");
                                 submit.onclick = function() {
-                                    var checked1 = document.getElementById("check1").checked;
-                                    var checked2 = document.getElementById("check2").checked;
-                                    var checked3 = document.getElementById("check3").checked;
-                                    var checked4 = document.getElementById("check4").checked;
-                                    var checked5 = document.getElementById("check5").checked;
+                                    localStorage.clear();
+                                    localStorage.setItem("hidden", "false");
                                     
-                                    //var grouplist = {};
-
+                                    var arr = [];
+                                    $(".form-check-input:checked").each(function() {
+                                        arr.push($(this).val());
+                                    });
+                                    
                                     var name = document.getElementById("groupName").value;
                                     localStorage.setItem("name", name);
-                                    if(checked1) {
-                                        var check1 = document.getElementById("check1").value;
-                                        localStorage.setItem("check1", check1);
-                                        grouplist.append(check1);
-                                    }
-                                    if(checked2) {
-                                        var check2 = document.getElementById("check2").value;
-                                        localStorage.setItem("check2", check2);
-                                        grouplist.append(check2);
-                                    }
-                                    if(checked3) {
-                                        var check3 = document.getElementById("check3").value;
-                                        localStorage.setItem("check3", check3);
-                                        grouplist.append(check3);
-                                    }
-                                    if(checked4) {
-                                        var check4 = document.getElementById("check4").value;
-                                        localStorage.setItem("check4", check4);
-                                        grouplist.append(check4);
-                                    }
-                                    if(checked5) {
-                                        var check5 = document.getElementById("check5").value;
-                                        localStorage.setItem("check5", check5);
-                                        grouplist.append(check5);
-                                    }
-                                    console.log(grouplist);
+                                    localStorage.setItem("members", JSON.stringify(arr));
                                 }
                             </script>
                         </div>
