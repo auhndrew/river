@@ -31,7 +31,7 @@ $(document).ready(function() {
   var meetupArray = JSON.parse(localStorage.getItem('meetupArray'));
   for(var i = 0; i<meetupArray.length;i++){
     console.log(localStorage.getItem('meetupArray[i].split'));
-    if(localStorage.getItem('meetupArray[i].split' == "true")){
+    if(localStorage.getItem('meetupArray[i].split' == "1")){
       source = $("#split-entry-template").html();
       template = Handlebars.compile(source);
       parentDiv = $("#templatedProjects");
@@ -83,7 +83,7 @@ var time = document.getElementById("time-input").value;
   existingItems.push(suggestion);
   localStorage.setItem('meetupArray',JSON.stringify(existingItems));
 
-  window.location.reload();
+  //window.location.reload();
    /* $('.modal').removeClass('in');
    $('.modal').css("display", "none");
    */
@@ -100,13 +100,11 @@ var splitSuggest = document.getElementById("splitsuggest");
 splitSuggest.onclick = function(){
   var location = document.getElementById("split-location-name").value;
 //  localStorage.setItem('newLocation',location);
-var time = document.getElementById("time-input").value;
   //localStorage.setItem('newTime',time);
   var comment = document.getElementById("split-message-text").value;
   //localStorage.setItem('newComment',comment);
   var split = "1";
   location.value = localStorage.getItem('location-name');
-  time.value = localStorage.getItem('time-input');
   comment.value = localStorage.getItem('message-text');
 
   localStorage.setItem('location-name',location.value);
@@ -114,7 +112,7 @@ var time = document.getElementById("time-input").value;
   localStorage.setItem('split',split.value);
   //localStorage.setItem('split',true);
   
-  var suggestion={"location":location,"time":time,"comment":comment,"split":split};
+  var suggestion={"location":location,"comment":comment,"split":split};
   //console.log(suggestion);
   //var suggestionObj = JSON.parse(suggestion);
   //var html = template(suggestion);
