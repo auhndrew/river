@@ -16,6 +16,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/homepage.css">
+    
     <!-- JS -->
     <script src="script/javascript.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -40,7 +41,7 @@
         <script>
             $(document).ready(function() {
                 var hidden = true;
-                hidden = localStorage.getItem("hidden");
+                hidden = localStorage.getItem("maphidden");
                 if(hidden === "false") {
                     document.getElementById("recent-events").style = "inline";
                 }
@@ -158,7 +159,7 @@
                                 var submit = document.getElementById("submit");
                                 submit.onclick = function() {
                                     localStorage.clear();
-                                    localStorage.setItem("hidden", "false");
+                                    localStorage.setItem("maphidden", "false");
                                     
                                     var arr = [];
                                     $(".form-check-input:checked").each(function() {
