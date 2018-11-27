@@ -16,11 +16,11 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/homepage.css">
-
+    
 <!-- Everything Else here -->
   <body>
-    <a href="home.html"><img src="images/RIVER.png" alt="river-Logo-Filler" height="120" width="auto" style="padding: 5px;"></a><br>
-
+    <a href="home.html"><img src="images/RIVER.png" alt="river-Logo-Filler" height="120" width="auto" style="padding: 5px;"></a><br> 
+      
     <!-- Nav -->
     <div class="bottom-nav">
     <nav>
@@ -33,20 +33,19 @@
   </div>
     <br>
       
-    <a href="home.html" type="button" class="btn btn-lg btn-default">Back</a><br><br>
+    <a href="home.html"><button type="button" class="btn btn-info btn-lg">Back</button></a><br><br>
     <div class= "container" id = "active-group-block">
         <img src="https://banner2.kisspng.com/20180728/ftk/kisspng-computer-icons-icon-design-users-group-group-icon-5b5c712f527ed9.0606827715327849433379.jpg" alt="Group Image" class="responsiveimg">
         <h3 id="groupName-active"></h3>
         <script>
         var newName = localStorage.getItem('name');
-        console.log(newName);
         document.getElementById("groupName-active").innerHTML = newName;
         </script>
         <h5>Group Members:</h5>
         <h6 id = "group-members"></h6>
         <br>
         <script>
-            var memberList = "You, ";
+            var memberList = "";
             var memberArray = JSON.parse(localStorage.getItem("members"));
             for(var i=0; i < memberArray.length; i++)  {
                 memberList += memberArray[i];
@@ -54,176 +53,339 @@
                     memberList += ", ";
                 }
             }
-            document.getElementById("group-members").innerHTML = memberList;
+            var totalMemberList = "You, " + memberList;
+            document.getElementById("group-members").innerHTML = totalMemberList;
         </script>
         <br>
 </div>
         <br>
-
-<script id="entry-template" type="text/x-handlebars-template">
-    <div class="container" id="project{{index}}">
+      
+      <center><button type="button" id="suggestmeetingpoint" class="btn btn-primary" data-toggle="modal" data-target="#myModal">+ Suggest a meeting point</button></center><br>
+      
+    <div id = "suggestbox" class="container" style = "display: none;">
+        <button type="button" class="btn btn-link pull-right" onclick="deleteSuggestion()">Delete</button>
         <button type="button" class="btn btn-link pull-right" data-toggle="modal" data-target="#editModal" id="#editModal">Edit</button>
 
-        <h4>Meet at {{location}}</h4>
-        <h5 id="meetingTime">Meeting Time: {{time}}</h5>
-        <h5>Comment: {{comment}}</h5>
-        <p id="going">Going: Harry Potter, Tony Stark, Rey</p>
-        <p id="notgoing">Not Going: Katniss, Gandalf</p>
+        <h4 id="meetingPoint">Meet at: </h4>
+        <h5 id="meetingTime">Time: </h5>
+        <h5 id="comment">Comment: </h5>
+        <p id="peopleGoing">Going: None</p>
+        <p id="peopleNotGoing">Not Going: You</p>
+        <p id="peopleUndecided">Undecided: </p>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn btn-secondary active">
-            <input type="radio" name="options" id="going" autocomplete="off" checked>Going
-          </label>
-          <label class="btn btn-secondary">
-            <input type="radio" name="options" id="notGoing" autocomplete="off"> Not Going
-          </label>
+            <button type="button" class="btn btn-outline-secondary" onclick="onGoing()">Going</button>
+            <button type="button" class="btn btn-outline-secondary" onclick="onNotGoing()">Not Going</button>
         </div>
         <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#splitModal" id="#splitbutton">Split Up!</button>
-      <hr>
-    </div>
-    <br>
-</script>
+        <div></div><br>
+        <script>
+            var suggestion = JSON.parse(localStorage.getItem("suggestion"));
+            var hidden = localStorage.getItem("suggesthidden");
+            
+            document.getElementById("meetingPoint").innerHTML = "Meet at: " + suggestion[0];
+            document.getElementById("meetingTime").innerHTML = "Time: " + suggestion[1];
+            document.getElementById("comment").innerHTML = "Comment: " + suggestion[2];
+            
+            if(hidden === "false") {
+                document.getElementById("suggestbox").style = "inline";
+                document.getElementById("suggestmeetingpoint").disabled = true;
+            }
+            
+            document.getElementById("peopleUndecided").innerHTML = "Undecided: " + memberList;
+            
+        </script>
+        <div id = "splitSuggestion" style = "display: none;">
+            <hr>
+            <button type="button" class="btn btn-link pull-right" onclick="deleteSplit()">Delete</button>
+            <button type="button" class="btn btn-link pull-right" data-toggle="modal" data-target="#editModal2" id="#editModal2">Edit</button>
 
-<script id="split-entry-template" type="text/x-handlebars-template">
-    <div class="container" id="project{{index}}">
-        <button type="button" class="btn btn-link pull-right" data-toggle="modal" data-target="#editModal" id="#editModal">Edit</button>
+            <h4 id="meetingPoint2">Meet at: </h4>
+            <h5 id="meetingTime2">Time: </h5>
+            <h5 id="comment2">Comment: </h5>
+            <p id="peopleGoing2">Going: None</p>
+            <p id="peopleNotGoing2">Not Going: None</p>
+            <p id="peopleUndecided2">Undecided: </p>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <button type="button" class="btn btn-outline-secondary" onclick="onGoing2()">Going</button>
+                <button type="button" class="btn btn-outline-secondary" onclick="onNotGoing2()">Not Going</button>
+            </div>
+            <button type="button" class="btn btn-primary pull-right" disabled>Split Up!</button>
+            <br>
+            <script>
+                var splitSuggestion = JSON.parse(localStorage.getItem("splitSuggestion"));
+                var splitHidden = localStorage.getItem("splitHidden");
+                
+                document.getElementById("meetingPoint2").innerHTML = "Meet at: " + splitSuggestion[0];
+                document.getElementById("meetingTime2").innerHTML = "Time: " + suggestion[1];
+                document.getElementById("peopleUndecided2").innerHTML = "Undecided: " + memberList;
+                document.getElementById("comment2").innerHTML = "Comment: " + splitSuggestion[1];
+                
+                if(splitHidden === "false") {
+                    document.getElementById("splitSuggestion").style = "inline";
+                    document.getElementById("#splitbutton").disabled = true;
+                }
+                
+                document.getElementById("peopleUndecided").innerHTML = "Undecided: " + memberList;
+                
+                function onGoing() {
+                    document.getElementById("peopleGoing").innerHTML = "Going: You";
+                    document.getElementById("peopleNotGoing").innerHTML = "Not Going: None";
+                    document.getElementById("peopleGoing2").innerHTML = "Going: None";
+                    document.getElementById("peopleNotGoing2").innerHTML = "Not Going: You";
+                }
 
-        <h4>Meet at {{location}}</h4>
-        <h5>Comment: {{comment}}</h5>
-        <p id="going">Going: Harry Potter, Tony Stark, Rey</p>
-        <p id="notgoing">Not Going: Katniss, Gandalf</p>
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn btn-secondary active">
-            <input type="radio" name="options" id="going" autocomplete="off" checked>Going
-          </label>
-          <label class="btn btn-secondary">
-            <input type="radio" name="options" id="notGoing" autocomplete="off"> Not Going
-          </label>
+                function onNotGoing() {
+                    document.getElementById("peopleGoing").innerHTML = "Going: None";
+                    document.getElementById("peopleNotGoing").innerHTML = "Not Going: You";
+                }
+                
+                function onGoing2() {
+                    document.getElementById("peopleGoing").innerHTML = "Going: None";
+                    document.getElementById("peopleNotGoing").innerHTML = "Not Going: You";
+                    document.getElementById("peopleGoing2").innerHTML = "Going: You";
+                    document.getElementById("peopleNotGoing2").innerHTML = "Not Going: None";
+                }
+                
+                function onNotGoing2() {
+                    document.getElementById("peopleGoing2").innerHTML = "Going: None";
+                    document.getElementById("peopleNotGoing2").innerHTML = "Not Going: You";
+                }
+                
+                function deleteSuggestion() {
+                    if(splitHidden && splitSuggestion) {
+                        deleteSplit();
+                    }
+                    localStorage.setItem("suggesthidden", "true");
+                    document.getElementById("suggestbox").style = "display: none";
+                    localStorage.removeItem("suggestion");
+                    document.getElementById("suggestmeetingpoint").disabled = false;
+                }
+                
+                function deleteSplit() {
+                    localStorage.setItem("splitHidden", "true");
+                    document.getElementById("splitSuggestion").style = "display: none";
+                    localStorage.removeItem("splitSuggestion");
+                    document.getElementById("#splitbutton").disabled = false;
+                }
+                
+            </script>
+            <br>
         </div>
-        <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#splitModal" id="#splitbutton">Split Up!</button>
-      <hr>
-    </div>
-    <br>
-</script>
+    </div><br><br><br><br><br>
 
+<!-- MODALS FROM THIS POINT ON -->
+      
+            <!-- Suggestion Modal -->
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
 
-<div id="templatedProjects">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Suggest a Meeting Point</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">Location:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="locationName" placeholder="Ex. Shake Shack" required="required" />
+                                    </div>
+                                    <br>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Select a Time</label>
+                                    <br>
+                                    <div class="col-sm-9">
+                                        <input type="time" class="form-control" id="time-input">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Comment:</label>
+                                    <br>
+                                    <div class="col-sm-9">
+                                        <textarea class="form-control" id="message-text" placeholder="Ex: I like their shakes! lol "></textarea>
+                                    </div>
+                                </div>
+                                <center>
+                                    <div class="form-group">
+                                        <button class="btn btn-default" onclick="suggestMeetup()">Suggest</button>
+                                    </div>
+                                </center>
+                            </form>
+                            <script>
+                                function suggestMeetup() {
+                                    localStorage.setItem("suggesthidden", "false");
+                                    
+                                    var suggestion = [];
+                                    
+                                    var location = document.getElementById("locationName").value;
+                                    var time = document.getElementById("time-input").value;
+                                    var comment = document.getElementById("message-text").value;
+                                    suggestion.push(location);
+                                    suggestion.push(time);
+                                    suggestion.push(comment);
+                                    localStorage.setItem("suggestion", JSON.stringify(suggestion));
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      
+      
+      <!-- Edit Modal -->
+      <div id="editModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
 
-  </div>
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Edit Suggestion</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">Location:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="editLocationName" placeholder="Ex. Shake Shack" required="required" />
+                                    </div>
+                                    <br>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Select a Time</label>
+                                    <br>
+                                    <div class="col-sm-9">
+                                        <input type="time" class="form-control" id="editTime">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Comment:</label>
+                                    <br>
+                                    <div class="col-sm-9">
+                                        <textarea class="form-control" id="edit-message-text" placeholder="Ex: I like their shakes! lol "></textarea>
+                                    </div>
+                                </div>
+                                <center>
+                                    <div class="form-group">
+                                        <button class="btn btn-default" onclick="editMeetup()">Suggest</button>
+                                    </div>
+                                </center>
+                            </form>
+                            <script>
+                                function editMeetup() {
+                                    var newArr = [];
+                                    
+                                    newArr.push(document.getElementById("editLocationName").value);
+                                    newArr.push(document.getElementById("editTime").value);
+                                    newArr.push(document.getElementById("edit-message-text").value);
+                                    
+                                    localStorage.setItem("suggestion", JSON.stringify(newArr));
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      
+      <!-- Edit Modal 2 -->
+      <div id="editModal2" class="modal fade" role="dialog">
+                <div class="modal-dialog">
 
-<!-- Normal Modal -->
-<br>
-<center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">+ Suggest a meeting point</button></center>
-<br><br>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" id="modal-fade">
-  <div class="modal-dialog" role="document" id="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Suggest a meeting point</h5>
-      </div>
-      <div class="modal-body">
-        <form id="suggest-form">
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Location:</label>
-            <input type="text" class="form-control" id="location-name" placeholder="Ex: Shake Shack">
-          </div>
-          <div class="form-group">
-            <label for="example-time-input" class="col-form-label">Time:</label>
-            <input type="time" class="form-control" id="time-input">
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Comment:</label>
-            <textarea class="form-control" id="message-text" placeholder="Ex: I like their shakes! lol "></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" data-dismiss="modal" data-target="#exampleModal" class="btn btn-primary" id="suggest">Suggest</button>
-      </div>
-    </div>
-  </div>
-</div>
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Edit Suggestion</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">Location:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="editLocationName2" placeholder="Ex. Shake Shack" required="required" />
+                                    </div>
+                                    <br>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Comment:</label>
+                                    <br>
+                                    <div class="col-sm-9">
+                                        <textarea class="form-control" id="edit-message-text2" placeholder="Ex: I like their shakes! lol "></textarea>
+                                    </div>
+                                </div>
+                                <center>
+                                    <div class="form-group">
+                                        <button class="btn btn-default" onclick="editMeetup()">Suggest</button>
+                                    </div>
+                                </center>
+                            </form>
+                            <script>
+                                function editMeetup() {
+                                    var newArr2 = [];
+                                    
+                                    newArr2.push(document.getElementById("editLocationName2").value);
+                                    newArr2.push(document.getElementById("edit-message-text2").value);
+                                    
+                                    localStorage.setItem("splitSuggestion", JSON.stringify(newArr2));
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<!-- Split Modal -->
-<div class="modal fade" id="splitModal" tabindex="-1" role="dialog" aria-labelledby="splitModalLabel" aria-hidden="true" id="modal-fade">
-  <div class="modal-dialog" role="document" id="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Suggest a meeting point</h5>
-      </div>
-      <div class="modal-body">
-        <form id="suggest-form">
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Location:</label>
-            <input type="text" class="form-control" id="split-location-name" placeholder="Ex: Shake Shack">
-          </div>
-          <!--<div class="form-group">
-            <label for="example-time-input" class="col-form-label">Time:</label>
-            <input type="time" class="form-control" id="split-time-input">
-          </div>-->
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Comment:</label>
-            <textarea class="form-control" id="split-message-text" placeholder="Ex: I like their shakes! lol "></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" data-dismiss="modal" data-target="#exampleModal" class="btn btn-primary" id="splitsuggest">Split suggestion</button>
-      </div>
-    </div>
-  </div>
-</div>
+      <!-- Split Modal -->
+      <div id="splitModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
 
-<!-- Edit Modal -->
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="splitModalLabel" aria-hidden="true" id="modal-fade">
-  <div class="modal-dialog" role="document" id="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit meeting point</h5>
-      </div>
-      <div class="modal-body">
-        <form id="suggest-form">
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Location:</label>
-            <input type="text" class="form-control" id="location-name" placeholder="Ex: Shake Shack">
-          </div>
-          <div class="form-group">
-            <label for="example-time-input" class="col-form-label">Time:</label>
-            <input type="time" class="form-control" id="time-input">
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Comment:</label>
-            <textarea class="form-control" id="message-text" placeholder="Ex: I like their shakes! lol "></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" data-dismiss="modal" data-target="#editModal" class="btn btn-primary" id="saveEdits">Save Changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!--
-      <div class="container" id="meetpoint">
-    <img src="https://png.icons8.com/windows/1600/map-pin.png" class="icon" id="meeticon">
-    <h4>Meet at [Westfield UTC]</h4>
-    <p>[12:00 PM]</p>
-    <br>
-        <button type="plus-button" class="plus-button">+</button>
-    <br>
-    <br>
-    </div> --> 
-  <br><br><br>
-
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Split Up!</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">Location:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="splitLocationName" placeholder="Ex. Shake Shack" required="required" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Comment:</label>
+                                    <br>
+                                    <div class="col-sm-9">
+                                        <textarea class="form-control" id="split-message-text" placeholder="Ex: I like their shakes! lol "></textarea>
+                                    </div>
+                                </div>
+                                <center>
+                                    <div class="form-group">
+                                        <button class="btn btn-default" onclick="splitMeetup()">Split!</button>
+                                    </div>
+                                </center>
+                            </form>
+                            <script>
+                                function splitMeetup() {
+                                    localStorage.setItem("splitHidden", false);
+                                    var splitArr = [];
+                                    
+                                    splitArr.push(document.getElementById("splitLocationName").value);
+                                    splitArr.push(document.getElementById("split-message-text").value);
+                                    
+                                    localStorage.setItem("splitSuggestion", JSON.stringify(splitArr));
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="script/bootstrap.min.js"></script>
-  <script src="script/handlebars-v4.0.11.js"></script>
-  <script src="script/javascript.js"></script>
   </body>
 </html>
 

@@ -1,0 +1,229 @@
+<html>
+
+  <!-- bootstrap -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Mobile First -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+  <!-- End of Bootstrap -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/homepage.css">
+
+<!-- Everything Else here -->
+  <body>
+    <a href="home.html"><img src="images/RIVER.png" alt="river-Logo-Filler" height="120" width="auto" style="padding: 5px;"></a><br>
+
+    <!-- Nav -->
+    <div class="bottom-nav">
+    <nav>
+      <ul>
+        <li><a href="home.html"><p>Home</p></a></li>
+        <li><a href="activegroups.html"><p>Active Groups</p></a></li>
+        <li><a href="contacts.html"><p>Contacts</p></a></li>              
+      </ul>
+    </nav>
+  </div>
+    <br>
+      
+    <a href="home.html" type="button" class="btn btn-lg btn-default">Back</a><br><br>
+    <div class= "container" id = "active-group-block">
+        <img src="https://banner2.kisspng.com/20180728/ftk/kisspng-computer-icons-icon-design-users-group-group-icon-5b5c712f527ed9.0606827715327849433379.jpg" alt="Group Image" class="responsiveimg">
+        <h3 id="groupName-active"></h3>
+        <script>
+        var newName = localStorage.getItem('name');
+        console.log(newName);
+        document.getElementById("groupName-active").innerHTML = newName;
+        </script>
+        <h5>Group Members:</h5>
+        <h6 id = "group-members"></h6>
+        <br>
+        <script>
+            var memberList = "You, ";
+            var memberArray = JSON.parse(localStorage.getItem("members"));
+            for(var i=0; i < memberArray.length; i++)  {
+                memberList += memberArray[i];
+                if(i != memberArray.length-1) {
+                    memberList += ", ";
+                }
+            }
+            document.getElementById("group-members").innerHTML = memberList;
+        </script>
+        <br>
+</div>
+        <br>
+
+<script id="entry-template" type="text/x-handlebars-template">
+    <div class="container" id="project{{index}}">
+        <button type="button" class="btn btn-link pull-right" data-toggle="modal" data-target="#editModal" id="#editModal">Edit</button>
+
+        <h4>Meet at {{location}}</h4>
+        <h5 id="meetingTime">Meeting Time: {{time}}</h5>
+        <h5>Comment: {{comment}}</h5>
+        <p id="going">Going: Harry Potter, Tony Stark, Rey</p>
+        <p id="notgoing">Not Going: Katniss, Gandalf</p>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="going" autocomplete="off" checked>Going
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="notGoing" autocomplete="off"> Not Going
+          </label>
+        </div>
+        <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#splitModal" id="#splitbutton">Split Up!</button>
+      <hr>
+    </div>
+    <br>
+</script>
+
+<script id="split-entry-template" type="text/x-handlebars-template">
+    <div class="container" id="project{{index}}">
+        <button type="button" class="btn btn-link pull-right" data-toggle="modal" data-target="#editModal" id="#editModal">Edit</button>
+
+        <h4>Meet at {{location}}</h4>
+        <h5>Comment: {{comment}}</h5>
+        <p id="going">Going: Harry Potter, Tony Stark, Rey</p>
+        <p id="notgoing">Not Going: Katniss, Gandalf</p>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="going" autocomplete="off" checked>Going
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="notGoing" autocomplete="off"> Not Going
+          </label>
+        </div>
+        <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#splitModal" id="#splitbutton">Split Up!</button>
+      <hr>
+    </div>
+    <br>
+</script>
+
+
+<div id="templatedProjects">
+
+  </div>
+
+<!-- Normal Modal -->
+<br>
+<center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">+ Suggest a meeting point</button></center>
+<br><br>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" id="modal-fade">
+  <div class="modal-dialog" role="document" id="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Suggest a meeting point</h5>
+      </div>
+      <div class="modal-body">
+        <form id="suggest-form">
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Location:</label>
+            <input type="text" class="form-control" id="location-name" placeholder="Ex: Shake Shack">
+          </div>
+          <div class="form-group">
+            <label for="example-time-input" class="col-form-label">Time:</label>
+            <input type="time" class="form-control" id="time-input">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Comment:</label>
+            <textarea class="form-control" id="message-text" placeholder="Ex: I like their shakes! lol "></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" data-dismiss="modal" data-target="#exampleModal" class="btn btn-primary" id="suggest">Suggest</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Split Modal -->
+<div class="modal fade" id="splitModal" tabindex="-1" role="dialog" aria-labelledby="splitModalLabel" aria-hidden="true" id="modal-fade">
+  <div class="modal-dialog" role="document" id="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Suggest a meeting point</h5>
+      </div>
+      <div class="modal-body">
+        <form id="suggest-form">
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Location:</label>
+            <input type="text" class="form-control" id="split-location-name" placeholder="Ex: Shake Shack">
+          </div>
+          <!--<div class="form-group">
+            <label for="example-time-input" class="col-form-label">Time:</label>
+            <input type="time" class="form-control" id="split-time-input">
+          </div>-->
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Comment:</label>
+            <textarea class="form-control" id="split-message-text" placeholder="Ex: I like their shakes! lol "></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" data-dismiss="modal" data-target="#exampleModal" class="btn btn-primary" id="splitsuggest">Split suggestion</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="splitModalLabel" aria-hidden="true" id="modal-fade">
+  <div class="modal-dialog" role="document" id="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit meeting point</h5>
+      </div>
+      <div class="modal-body">
+        <form id="suggest-form">
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Location:</label>
+            <input type="text" class="form-control" id="location-name" placeholder="Ex: Shake Shack">
+          </div>
+          <div class="form-group">
+            <label for="example-time-input" class="col-form-label">Time:</label>
+            <input type="time" class="form-control" id="time-input">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Comment:</label>
+            <textarea class="form-control" id="message-text" placeholder="Ex: I like their shakes! lol "></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" data-dismiss="modal" data-target="#editModal" class="btn btn-primary" id="saveEdits">Save Changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--
+      <div class="container" id="meetpoint">
+    <img src="https://png.icons8.com/windows/1600/map-pin.png" class="icon" id="meeticon">
+    <h4>Meet at [Westfield UTC]</h4>
+    <p>[12:00 PM]</p>
+    <br>
+        <button type="plus-button" class="plus-button">+</button>
+    <br>
+    <br>
+    </div> --> 
+  <br><br><br>
+
+
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="script/bootstrap.min.js"></script>
+  <script src="script/handlebars-v4.0.11.js"></script>
+  <script src="script/javascript.js"></script>
+  </body>
+</html>
+
