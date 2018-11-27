@@ -71,6 +71,7 @@
 
         <h4 id="meetingPoint">Meet at: </h4>
         <h5 id="meetingTime">Time: </h5>
+        <button type="button" class="btn btn-success pull-right" disabled><i class="fas fa-code-branch"></i> Split Up!</button>
         <h5 id="comment">Comment: </h5>
         <p id="peopleGoing">Going: None</p>
         <p id="peopleNotGoing">Not Going: You</p>
@@ -79,7 +80,6 @@
             <button type="button" class="btn btn-outline-secondary" onclick="onGoing()">Going</button>
             <button type="button" class="btn btn-outline-secondary" onclick="onNotGoing()">Not Going</button>
         </div>
-        <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#splitModal" id="#splitbutton"><i class="fas fa-code-branch"></i> Split Up!</button>
         <div></div><br>
         <script>
             var suggestion = JSON.parse(localStorage.getItem("suggestion"));
@@ -101,14 +101,13 @@
             <hr>
             <button type="button" class="btn btn-link pull-right" onclick="deleteSplit()">Delete</button>
             <button type="button" class="btn btn-link pull-right" data-toggle="modal" data-target="#editModal2" id="#editModal2">Edit</button>
-
             <h4 id="meetingPoint2">Meet at: </h4>
-            <h5 id="meetingTime2">Time: </h5>
+            <h5 id="meetingTime2">Time: </h5><button type="button" class="btn btn-success pull-right" disabled><i class="fas fa-code-branch"></i> Split Up!</button>
             <h5 id="comment2">Comment: </h5>
             <p id="peopleGoing2">Going: None</p>
             <p id="peopleNotGoing2">Not Going: None</p>
             <p id="peopleUndecided2">Undecided: </p>
-            <button type="button" class="btn btn-primary pull-right" disabled><i class="fas fa-code-branch"></i> Split Up!</button>
+            
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <button type="button" class="btn btn-outline-secondary" onclick="onGoing2()">Going</button>
                 <button type="button" class="btn btn-outline-secondary" onclick="onNotGoing2()">Not Going</button>
