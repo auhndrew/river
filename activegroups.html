@@ -138,11 +138,13 @@
                     document.getElementById("peopleNotGoing").innerHTML = "Not Going: None";
                     document.getElementById("peopleGoing2").innerHTML = "Going: None";
                     document.getElementById("peopleNotGoing2").innerHTML = "Not Going: You";
+                    document.getElementById("peopleUndecided").innerHTML = "Undecided:" + memberList;
                 }
 
                 function onNotGoing() {
                     document.getElementById("peopleGoing").innerHTML = "Going: None";
                     document.getElementById("peopleNotGoing").innerHTML = "Not Going: You";
+                    document.getElementById("peopleUndecided").innerHTML = "Undecided:" + memberList;
                 }
                 
                 function onGoing2() {
@@ -150,11 +152,13 @@
                     document.getElementById("peopleNotGoing").innerHTML = "Not Going: You";
                     document.getElementById("peopleGoing2").innerHTML = "Going: You";
                     document.getElementById("peopleNotGoing2").innerHTML = "Not Going: None";
+                    document.getElementById("peopleUndecided").innerHTML = "Undecided:"+ memberList;
                 }
                 
                 function onNotGoing2() {
                     document.getElementById("peopleGoing2").innerHTML = "Going: None";
                     document.getElementById("peopleNotGoing2").innerHTML = "Not Going: You";
+                    document.getElementById("peopleUndecided").innerHTML = "Undecided:" + memberList;
                 }
 
                 function onUndecided() {
