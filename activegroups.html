@@ -319,6 +319,13 @@
                                     <br>
                                 </div>
                                 <div class="form-group">
+                                    <label class="col-sm-2 control-label">Select a Time</label>
+                                    <br>
+                                    <div class="col-sm-9">
+                                        <input id="editTime2" type="time" class="form-control" id="time-input" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label class="col-sm-2 control-label">Comment:</label>
                                     <br>
                                     <div class="col-sm-9">
@@ -334,6 +341,7 @@
                             <script>
                                 document.getElementById("editLocationName2").value = splitSuggestion[0];
                                 document.getElementById("edit-message-text2").value = splitSuggestion[1];
+                                document.getElementById("editTime2").value = suggestion[1];
                                 
                                 function editMeetup2() {
                                     var newArr2 = [];
@@ -368,6 +376,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label class="col-sm-2 control-label">Select a Time</label>
+                                    <br>
+                                    <div class="col-sm-9">
+                                        <input id="splitTime" type="time" class="form-control" id="time-input" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label class="col-sm-2 control-label">Comment:</label>
                                     <br>
                                     <div class="col-sm-9">
@@ -381,6 +396,7 @@
                                 </center>
                             </form>
                             <script>
+                                document.getElementById("splitTime").value = suggestion[1];
                                 function splitMeetup() {
                                     localStorage.setItem("splitHidden", false);
                                     var splitArr = [];
