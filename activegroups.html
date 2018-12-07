@@ -98,7 +98,7 @@
         </script>
         <div id = "splitSuggestion" style = "display: none;">
             <hr>
-            <img src="images/orsplit.png" style="float:left; display:block; height:150px; margin-right:25px; margin-bottom:100px;margin-top:10px;" class="clearfix"></img><button type="button" class="btn btn-link pull-right" onclick="deleteSplit()">Delete</button>
+            <img src="images/orsplit.png" style="float:left; display:block; height:150px; margin-right:25px; margin-bottom:100px;margin-top:10px;" class="clearfix"><button type="button" class="btn btn-link pull-right" onclick="deleteSplit()">Delete</button>
             <button type="button" class="btn btn-link pull-right" data-toggle="modal" data-target="#editModal2" id="#editModal2">Edit</button>
 
             <h4 id="meetingPoint2">Meet at: </h4>
@@ -113,7 +113,6 @@
                 <button type="button" class="btn btn-outline-secondary" onclick="onNotGoing2()">Not Going</button>
             </div>
             <!--<button type="button" class="btn btn-primary pull-right" disabled>Split Up!</button>-->
-        </blockquote>
             <br>
             <script>
                 var splitSuggestion = JSON.parse(localStorage.getItem("splitSuggestion"));
@@ -254,7 +253,7 @@
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">Location:</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="editLocationName" placeholder="Ex. Shake Shack" required="required" />
+                                        <input type="text" class="form-control" id="editLocationName" placeholder="Ex. Shake Shack" required="required"/>
                                     </div>
                                     <br>
                                 </div>
@@ -279,12 +278,17 @@
                                 </center>
                             </form>
                             <script>
+                                document.getElementById("editLocationName").value = suggestion[0];
+                                document.getElementById("editTime").value = suggestion[1];
+                                document.getElementById("edit-message-text").value = suggestion[2];
                                 function editMeetup() {
                                     var newArr = [];
                                     
                                     newArr.push(document.getElementById("editLocationName").value);
                                     newArr.push(document.getElementById("editTime").value);
                                     newArr.push(document.getElementById("edit-message-text").value);
+                                    
+                                    console.log(newArr);
                                     
                                     localStorage.setItem("suggestion", JSON.stringify(newArr));
                                 }
@@ -322,12 +326,15 @@
                                 </div>
                                 <center>
                                     <div class="form-group">
-                                        <button class="btn btn-default" onclick="editMeetup()">Suggest</button>
+                                        <button class="btn btn-default" onclick="editMeetup2()">Suggest</button>
                                     </div>
                                 </center>
                             </form>
                             <script>
-                                function editMeetup() {
+                                document.getElementById("editLocationName2").value = splitSuggestion[0];
+                                document.getElementById("edit-message-text2").value = splitSuggestion[1];
+                                
+                                function editMeetup2() {
                                     var newArr2 = [];
                                     
                                     newArr2.push(document.getElementById("editLocationName2").value);
